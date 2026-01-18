@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TechElevate Current Programs Wireframes</title>
+  <style>
+    :root{
+      --c1:#67807A;   /* deep teal/green */
+      --c2:#61C0D2;   /* bright aqua */
+      --c3:#4F5B59;   /* dark slate */
+      --bg:#FDFDFD;   /* background */
+      --ink:#0f1413;
+      --muted:#6b7472;
+      --line:#e3e7e6;
+      --dash:#cfd6d5;
+      --radius:18px;
+    }
+    *{box-sizing:border-box;font-family:system-ui, Arial, sans-serif;}
+    body{
+      margin:0;background:#eee;display:flex;justify-content:center;
+      padding:24px;
+    }
+    .stack{display:grid;gap:26px;}
+
+    /* PAGE BASE */
+    .page{
+      width:850px;height:1100px;background:var(--bg);
+      border:2px solid #ddd;padding:36px;position:relative;
+    }
+
+    /* HERO BAND */
+    .hero{
+      height:240px;border-radius:var(--radius);position:relative;overflow:hidden;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)),
+        repeating-linear-gradient(135deg,#e9eeee 0 18px,#f6f8f8 18px 36px);
+      border:2px dashed var(--dash);
+    }
+    .hero .titlebox{
+      position:absolute;left:20px;bottom:20px;right:20px;
+      background:rgba(253,253,253,.92);
+      border-left:8px solid var(--c1);
+      border-radius:12px;padding:14px 16px;
+    }
+    .hero h1{margin:0;font-size:32px;color:var(--c3);}
+    .hero p{margin:4px 0 0;color:var(--muted);font-size:14px;}
+
+    .label{
+      display:inline-block;padding:6px 10px;border-radius:999px;
+      font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+      background:rgba(103,128,122,.12);color:var(--c1);margin-bottom:10px;
+    }
+    .panel{
+      background:#fff;border:2px solid var(--line);
+      border-radius:var(--radius);padding:16px;
+    }
+    .small{color:var(--muted);font-size:13px;line-height:1.45;}
+    .bullets{margin:8px 0 0;padding-left:18px;color:var(--ink);font-size:14px;line-height:1.5;}
+    .bullets li{margin-bottom:6px;}
+
+    .pill{
+      border-radius:14px;padding:12px;background:#fff;border:2px solid var(--line);
+      font-weight:700;color:var(--c3);font-size:13px;text-align:center;
+    }
+    .pill.accent{
+      background:rgba(97,192,210,.12);
+      border-color:rgba(97,192,210,.35);
+    }
+    .footer-tag{
+      position:absolute;right:36px;bottom:36px;
+      font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.5px;
+    }
+
+    /* ---------- PAGE 1: CODING ---------- */
+    .main-2col{
+      margin-top:18px;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;
+      height:640px;
+    }
+    .path{
+      display:grid;grid-template-rows:repeat(4,1fr);gap:12px;height:100%;
+    }
+    .step{
+      border-radius:16px;border:2px dashed var(--dash);background:#fff;padding:12px;
+      display:flex;gap:12px;align-items:center;
+    }
+    .icon{
+      width:54px;height:54px;border-radius:12px;
+      background:rgba(97,192,210,.18);border:2px solid rgba(97,192,210,.35);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--c3);font-weight:800;font-size:18px;
+    }
+    .step h3{margin:0;font-size:16px;color:var(--c3);}
+    .step p{margin:4px 0 0;font-size:13px;color:var(--muted);}
+
+    .bottom-3{
+      margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    }
+
+    /* ---------- PAGE 2: DIGITAL LITERACY ---------- */
+    .dl-grid{
+      margin-top:18px;display:grid;grid-template-columns: .95fr 1.05fr;gap:18px;
+      height:700px;
+    }
+    .topics{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;
+    }
+    .topic{
+      border-radius:14px;border:2px dashed var(--dash);background:#fff;padding:10px;
+      display:flex;gap:8px;align-items:center;
+    }
+    .topic .mini{
+      width:34px;height:34px;border-radius:8px;
+      background:rgba(103,128,122,.12);border:2px solid rgba(103,128,122,.25);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:var(--c3);font-size:12px;
+      flex:0 0 auto;
+    }
+    .topic span{font-size:13px;color:var(--c3);font-weight:700;line-height:1.2;}
+
+    .dl-bottom{
+      margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;
+    }
+
+    /* ---------- PAGE 3: TECH ASSIST + ROBOTICS COMBINED ---------- */
+    .combo{
+      margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;
+      height:720px;
+    }
+    .subhero{
+      height:160px;border-radius:14px;border:2px dashed var(--dash);
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.05), rgba(0,0,0,.05)),
+        repeating-linear-gradient(135deg,#eceff0 0 16px,#f7f9fa 16px 32px);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:var(--muted);font-size:14px;margin-bottom:12px;
+    }
+    .flow{
+      display:grid;grid-template-rows:repeat(3,1fr);gap:10px;margin-top:8px;
+    }
+    .flowstep{
+      border-radius:14px;border:2px dashed var(--dash);background:#fff;padding:10px;
+      display:flex;gap:10px;align-items:center;
+    }
+    .flowstep .miniicon{
+      width:40px;height:40px;border-radius:10px;
+      background:rgba(97,192,210,.18);border:2px solid rgba(97,192,210,.35);
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--c3);
+      flex:0 0 auto;
+    }
+    .flowstep strong{display:block;color:var(--c3);font-size:13px;}
+    .flowstep em{display:block;color:var(--muted);font-size:12px;font-style:normal;}
+
+    .skills{
+      margin-top:10px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;
+    }
+    .skill{
+      border-radius:12px;border:2px solid var(--line);background:#fff;padding:8px;
+      text-align:center;font-size:12px;font-weight:800;color:var(--c3);
+    }
+  </style>
+</head>
+<body>
+  <div class="stack">
+
+    <!-- ===================================================== -->
+    <!-- PAGE 1: CODING FOR STUDENTS -->
+    <!-- ===================================================== -->
+    <section class="page">
+      <div class="hero">
+        <div class="titlebox">
+          <h1>Coding for Students</h1>
+          <p>Free in-person coding classes for ages 8–14, taught at libraries and partner sites.</p>
+        </div>
+      </div>
+
+      <div class="main-2col">
+        <!-- LEFT: DESCRIPTION -->
+        <div class="panel">
+          <div class="label">What it is</div>
+          <p class="small">
+            TechElevate’s coding program introduces students to computer science through fun, guided projects.
+            No experience needed — just curiosity.
+          </p>
+
+          <div class="label" style="margin-top:12px;">Quick facts</div>
+          <ul class="bullets">
+            <li><b>Where:</b> local libraries, after-school programs, nonprofit partners</li>
+            <li><b>Who:</b> ages <b>8–14</b></li>
+            <li><b>Cost:</b> completely free</li>
+            <li><b>Length:</b> 8-week and 16-week cohorts</li>
+            <li><b>Outcome:</b> completion certificates</li>
+          </ul>
+
+          <div class="label" style="margin-top:12px;">Curriculum</div>
+          <p class="small">Powered by Carnegie Mellon University’s Graphic Python program.</p>
+        </div>
+
+        <!-- RIGHT: LEARNING PATH -->
+        <div class="path">
+          <div class="step">
+            <div class="icon">1</div>
+            <div>
+              <h3>Create with Shapes</h3>
+              <p>Students start by drawing and designing through code.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon">2</div>
+            <div>
+              <h3>Animate & Explore</h3>
+              <p>They bring creations to life with motion and interaction.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon">3</div>
+            <div>
+              <h3>Conditionals & Logic</h3>
+              <p>Students learn if-statements and decision-making.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="icon">4</div>
+            <div>
+              <h3>Loops + Final Projects</h3>
+              <p>Learners build games/apps (e.g., Space Invaders-style projects).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-3">
+        <div class="pill">Hands-on challenges weekly</div>
+        <div class="pill accent">Student-built apps & games</div>
+        <div class="pill">Certificates at completion</div>
+      </div>
+
+      <div class="footer-tag">CURRENT PROGRAMS • CODING</div>
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- PAGE 2: DIGITAL LITERACY FOR SENIORS -->
+    <!-- ===================================================== -->
+    <section class="page">
+      <div class="hero">
+        <div class="titlebox" style="border-left-color:var(--c2);">
+          <h1>Digital Literacy for Seniors</h1>
+          <p>Confidence-building workshops tailored to older adults and community needs.</p>
+        </div>
+      </div>
+
+      <div class="dl-grid">
+        <!-- LEFT: WHY + DELIVERY -->
+        <div class="panel">
+          <div class="label">Why this matters</div>
+          <p class="small">
+            Many seniors face online risks and frustration navigating today’s digital tools.
+            These sessions make technology safer, clearer, and more empowering.
+          </p>
+
+          <div class="label" style="margin-top:12px;">How we deliver</div>
+          <ul class="bullets">
+            <li><b>45-minute sessions</b>, adapted by group needs</li>
+            <li>Hosted with community centers, nonprofits, and retirement homes</li>
+            <li>Hands-on, discussion-friendly teaching style</li>
+          </ul>
+
+          <div class="label" style="margin-top:12px;">Reach</div>
+          <p class="small"><b>75+ seniors served</b> through TechElevate workshops.</p>
+        </div>
+
+        <!-- RIGHT: TOPICS “WHEEL” GRID -->
+        <div class="panel">
+          <div class="label">Topics covered</div>
+          <div class="topics">
+            <div class="topic"><div class="mini">1</div><span>Understanding the Internet</span></div>
+            <div class="topic"><div class="mini">2</div><span>Communication platforms</span></div>
+            <div class="topic"><div class="mini">3</div><span>Social media safety</span></div>
+            <div class="topic"><div class="mini">4</div><span>Protecting financial info</span></div>
+            <div class="topic"><div class="mini">5</div><span>Personal data security</span></div>
+            <div class="topic"><div class="mini">6</div><span>Scams & cybersecurity basics</span></div>
+            <div class="topic"><div class="mini">7</div><span>AI awareness & safety</span></div>
+            <div class="topic"><div class="mini">8</div><span>Using your phone confidently</span></div>
+          </div>
+
+          <div class="label" style="margin-top:12px;">Closing session</div>
+          <p class="small">Recap of skills + emerging scam alerts and safe practices.</p>
+        </div>
+      </div>
+
+      <div class="dl-bottom">
+        <div class="pill">Tailored to each group</div>
+        <div class="pill accent">Internet safety focus</div>
+        <div class="pill">Confidence-first learning</div>
+      </div>
+
+      <div class="footer-tag">CURRENT PROGRAMS • DIGITAL LITERACY</div>
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- PAGE 3: TECHNOLOGY ASSISTANCE + ROBOTICS WORKSHOPS -->
+    <!-- ===================================================== -->
+    <section class="page">
+      <div class="hero">
+        <div class="titlebox" style="border-left-color:var(--c3);">
+          <h1>Access + Robotics Experiences</h1>
+          <p>Devices for learning, and hands-on robotics workshops that spark creativity.</p>
+        </div>
+      </div>
+
+      <div class="combo">
+
+        <!-- LEFT HALF: TECHNOLOGY ASSISTANCE -->
+        <div class="panel">
+          <div class="subhero">Photo: Device access / laptop & hotspot support</div>
+
+          <div class="label">Technology Assistance</div>
+          <p class="small">
+            Learning can’t happen without reliable tools. We provide laptops and hotspots to students who
+            need them to participate fully in TechElevate coding classes.
+          </p>
+
+          <div class="label" style="margin-top:10px;">How it works</div>
+          <div class="flow">
+            <div class="flowstep">
+              <div class="miniicon">1</div>
+              <div>
+                <strong>Devices sourced</strong>
+                <em>Through donations, sponsors, and nonprofit partners.</em>
+              </div>
+            </div>
+            <div class="flowstep">
+              <div class="miniicon">2</div>
+              <div>
+                <strong>Students receive support</strong>
+                <em>Laptops/hotspots provided at no cost.</em>
+              </div>
+            </div>
+            <div class="flowstep">
+              <div class="miniicon">3</div>
+              <div>
+                <strong>Shipped free to learners</strong>
+                <em>Ensuring access for 8–16 week cohorts.</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="label" style="margin-top:10px;">Outcome</div>
+          <p class="small">
+            This program keeps our classes truly free and equitable — removing access barriers before they start.
+          </p>
+        </div>
+
+        <!-- RIGHT HALF: ROBOTICS -->
+        <div class="panel">
+          <div class="subhero">Photo: Robotics workshop / kids coding robots</div>
+
+          <div class="label">Robotics Workshops</div>
+          <p class="small">
+            Regular hands-on workshops where kids use block coding to program robots at local libraries and
+            community spaces.
+          </p>
+
+          <div class="label" style="margin-top:10px;">What happens</div>
+          <ul class="bullets">
+            <li>Students learn block code to control robots</li>
+            <li>They test, iterate, and improve designs</li>
+            <li>Workshops emphasize fun, teamwork, and exploration</li>
+          </ul>
+
+          <div class="label" style="margin-top:10px;">Skills sparked</div>
+          <div class="skills">
+            <div class="skill">Creativity</div>
+            <div class="skill">Logic</div>
+            <div class="skill">Teamwork</div>
+            <div class="skill">Engineering</div>
+            <div class="skill">Confidence</div>
+          </div>
+
+          <div class="label" style="margin-top:10px;">Frequency</div>
+          <p class="small">Workshops hosted regularly throughout the year.</p>
+        </div>
+
+      </div>
+
+      <div class="footer-tag">CURRENT PROGRAMS • ACCESS + ROBOTICS</div>
+    </section>
+
+  </div>
+</body>
+</html>
