@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Programs Opener Wireframe</title>
+  <style>
+    :root{
+      --c1:#67807A;   /* deep teal/green */
+      --c2:#61C0D2;   /* bright aqua */
+      --c3:#4F5B59;   /* dark slate */
+      --bg:#FDFDFD;   /* side/background */
+      --ink:#0f1413;
+      --muted:#6b7472;
+    }
+    *{box-sizing:border-box;font-family:system-ui, Arial, sans-serif;}
+    body{margin:0;background:#eee;display:flex;justify-content:center;padding:24px;}
+    .page{
+      width: 850px;   /* ~8.5x11 aspect */
+      height: 1100px;
+      background: var(--bg);
+      border: 2px solid #ddd;
+      padding: 36px;
+      position: relative;
+    }
+
+    /* HERO COLLAGE STRIP */
+    .hero-strip{
+      height: 260px; /* top ~25% */
+      border-radius: 18px;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.08), rgba(0,0,0,.08)),
+        repeating-linear-gradient(135deg,#e9eeee 0 20px,#f6f8f8 20px 40px);
+      border: 2px dashed #cfd6d5;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      padding:10px;
+    }
+    .hero-tile{
+      border-radius: 12px;
+      border: 2px dashed #cfd6d5;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--muted);font-size:14px;font-weight:600;
+      background:#fff;
+    }
+
+    /* SECTION TITLE */
+    .section-title{
+      margin-top: 18px;
+      display:flex;justify-content:space-between;align-items:flex-end;
+    }
+    .section-title h1{
+      margin:0;font-size:38px;letter-spacing:.2px;color:var(--c3);
+    }
+    .section-title p{
+      margin:0;color:var(--muted);font-size:15px;max-width:380px;
+    }
+
+    /* PROGRAM CARDS GRID */
+    .cards{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+    .card{
+      border-radius:18px;
+      padding:18px 18px 16px;
+      border:2px solid #e3e7e6;
+      background:#fff;
+      min-height: 180px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::after{
+      content:"";
+      position:absolute;inset:auto -40% -40% auto;
+      width:220px;height:220px;border-radius:50%;
+      opacity:.10;background:var(--c2);
+    }
+    .card .tag{
+      display:inline-block;padding:6px 10px;border-radius:999px;
+      font-size:12px;font-weight:700;letter-spacing:.6px;
+      background:rgba(97,192,210,.14);color:var(--c1);
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .card h3{margin:0 0 6px;font-size:20px;color:var(--c3);}
+    .card p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.35;}
+    .card .snapshot{
+      font-weight:700;font-size:13px;color:var(--c1);
+      background:rgba(103,128,122,.12);
+      display:inline-block;padding:6px 8px;border-radius:8px;
+    }
+
+    /* BOTTOM APPROACH BAR */
+    .bottom-bar{
+      position:absolute;left:36px;right:36px;bottom:36px;
+      border-radius:16px;
+      background:linear-gradient(90deg, rgba(103,128,122,.10), rgba(97,192,210,.10));
+      border:2px solid #e3e7e6;
+      padding:14px 16px;
+      display:flex;align-items:center;justify-content:space-between;
+      font-size:14px;
+    }
+    .bottom-bar .approach{font-weight:700;color:var(--c3);}
+    .bottom-bar .cue{color:var(--muted);}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HERO COLLAGE STRIP -->
+    <div class="hero-strip">
+      <div class="hero-tile">Photo: Coding</div>
+      <div class="hero-tile">Photo: Seniors</div>
+      <div class="hero-tile">Photo: Devices</div>
+      <div class="hero-tile">Photo: Robotics</div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="section-title">
+      <h1>Our Current Programs</h1>
+      <p>Four pathways helping learners gain skills, confidence, and access in the digital world.</p>
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+      <div class="card">
+        <div class="tag">Program 1</div>
+        <h3>Coding for Students (Ages 8–14)</h3>
+        <p>Free, hands-on coding classes that guide learners from first shapes to their own apps and games.</p>
+        <div class="snapshot">8–16 week sessions • Certificates earned</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Program 2</div>
+        <h3>Digital Literacy for Seniors</h3>
+        <p>Interactive workshops that build confidence with internet safety, scams, devices, and AI.</p>
+        <div class="snapshot">45-minute sessions • 75+ seniors served</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Program 3</div>
+        <h3>Technology Assistance</h3>
+        <p>Laptops and hotspots provided to students who need reliable access to learn.</p>
+        <div class="snapshot">Devices shipped free to learners</div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Program 4</div>
+        <h3>Robotics Workshops</h3>
+        <p>Creative block-coding sessions where kids build and program robots at local libraries.</p>
+        <div class="snapshot">Hosted regularly throughout the year</div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottom-bar">
+      <div class="approach">Every program is free, community-based, and designed to remove barriers to participation.</div>
+      <div class="cue">Next pages → Program highlights & outcomes</div>
+    </div>
+  </div>
+</body>
+</html>
+
